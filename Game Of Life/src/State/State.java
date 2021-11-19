@@ -14,7 +14,7 @@ public class State {
  int cols;
  //int size=10;
  boolean[][] grid;//=new float[rows][cols];
- public State()
+ public State()//default constructor
  {
      rows=3;
      cols=3;
@@ -26,7 +26,7 @@ public class State {
              grid[i][j]=false;
      }
  }
- public State(int rows, int cols)
+ public State(int rows, int cols)//Default values constuctor
  {
      this.rows=rows;
      this.cols=cols;
@@ -35,6 +35,17 @@ public class State {
      {
          for(int j=0; j<cols;j++)
              grid[i][j]=false;
+     }
+ }
+ public State(State copyState)//Default copy constuctor
+ {
+     this.rows=copyState.rows;
+     this.cols=copyState.cols;
+     grid=new boolean[rows][cols];
+     for(int i=0; i<rows;i++)
+     {
+         for(int j=0; j<cols;j++)
+             grid[i][j]=copyState.grid[i][j];
      }
  }
  public void print()
@@ -49,7 +60,15 @@ public class State {
  public static void main(String[] args)
  {
      State state=new State(5,5);
+     State newState=new State(state);
+     newState.grid[0][0]=true;
      state.print();
-     System.out.println("Hanzla di layi");
+     
+     System.out.println("Constructor affect");
+     
+     state.grid[2][2]=true;
+     newState.print();
+     
+     
  }
 }
