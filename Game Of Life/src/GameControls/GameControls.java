@@ -13,18 +13,89 @@ import State.State;
 public class GameControls {
     
     GUI_Implementation gui;
+    private boolean actionOnActive(int neighboursCount)
+    {
+        if(neighboursCount<=1)
+            return false;
+        else if(neighboursCount>=4)
+            return false;
+        return true;
+    }
+    private boolean actionOnDead(int neighboursCount)
+    {
+        if(neighboursCount==3)
+            return true;
+        else
+            return false;
+        //return false;
+    }
     public State Next()
     {
-        State currentState=new State(gui.getGrid());
-        State newState=new State(currentState.getRows(), currentState.getCols());
-        for(int i=1; i<currentState.getRows(); i++)
+        gui=new GUI_Implementation();
+        State currentState=new State(gui.getGrid());//getting the current state from grid
+        State newState=new State(currentState.getRows(), currentState.getCols());//making new state for changes
+        int neighbours=0;// for neighbour count
+        for(int i=1; i<currentState.getRows()-1; i++)
         {
-            for(int j=1; j<currentState.getCols(); j++)
+            for(int j=1; j<currentState.getCols()-1; j++)
             {
+                if(currentState.instance(i-1, j-1)) {
+                    neighbours++;
+                }
+                if(currentState.instance(i-1, j)) {
+                    neighbours++;
+                }
+                if(currentState.instance(i-1, j+1)) {
+                    neighbours++;
+                }
+                if(currentState.instance(i, j-1)) {
+                    neighbours++;
+                }
+                if(currentState.instance(i, j+1)) {
+                    neighbours++;
+                }
+                if(currentState.instance(i+1, j-1)) {
+                    neighbours++;
+                }
+                if(currentState.instance(i+1, j)) {
+                    neighbours++;
+                }
+                if(currentState.instance(i+1, j+1)) {
+                    neighbours++;
+                }
                 
+                if(currentState.instance(i, j))
+                {
+                    if(actionOnActive(neighbours))
+                    {
+                        newState.setInstance(i, j, true);
+                    }
+                    else
+                        newState.setInstance(i, j, false);              
+                }
+                else
+                {
+                    if(actionOnDead(neighbours))
+                        newState.setInstance(i, j, true);
+                    else
+                        newState.setInstance(i, j, false);
+                }
+                neighbours=0;
             }
         }
         
         return newState;
+    }
+    
+    public static void main(String[] args)
+    {/*
+        State state=new State(10, 10);
+        state.setInstance(3, 3, true);
+        state.setInstance(3, 4, true);
+        state.setInstance(3, 5, true);
+        state.print();*/
+        GameControls GOL=new GameControls();
+        State state=new State(GOL.Next());
+        state.print();
     }
 }
