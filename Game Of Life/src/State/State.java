@@ -65,6 +65,13 @@ public class State {
  {
      return cols;
  }
+ public boolean instance(int row, int col)
+ {
+     if(grid[row][col]==true)
+         return true;
+     else
+         return false;
+ }
  /*
  public static void main(String[] args)
  {
