@@ -65,7 +65,7 @@ public class State {
      state.print();
      
      System.out.println("Constructor affect");
-     
+     state=new State(newState);
      state.grid[2][2]=true;
      newState.print();
      

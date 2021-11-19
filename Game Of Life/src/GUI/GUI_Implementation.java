@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GameControls;
-import GUI.GUI_Implementation;
+package GUI;
+
 import State.State;
+import GameControls.GUI_Interface;
 /**
  *
  * @author Shurahbeel Ahmad
  */
-public class GameControls {
-    
-    GUI_Implementation gui;
-    public State Next()
+public class GUI_Implementation implements GUI_Interface{
+
+    public State getGrid()
     {
-        State newState=new State();
-        
-        return newState;
+        State state=new State();
+        return state;
     }
 }

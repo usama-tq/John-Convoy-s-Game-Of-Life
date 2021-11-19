@@ -4,19 +4,14 @@
  * and open the template in the editor.
  */
 package GameControls;
-import GUI.GUI_Implementation;
+
 import State.State;
+
 /**
  *
  * @author Shurahbeel Ahmad
  */
-public class GameControls {
-    
-    GUI_Implementation gui;
-    public State Next()
-    {
-        State newState=new State();
-        
-        return newState;
-    }
+public interface GUI_Interface {
+    public State getGrid();
+    public void printGrid(State state);
 }
