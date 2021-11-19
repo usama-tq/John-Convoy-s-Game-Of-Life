@@ -72,6 +72,10 @@ public class State {
      else
          return false;
  }
+ public void setInstance(int row, int col, boolean status)
+ {
+     this.grid[row][col]=status;
+ }
  /*
  public static void main(String[] args)
  {
