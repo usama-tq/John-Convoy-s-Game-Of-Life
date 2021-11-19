@@ -15,7 +15,15 @@ public class GameControls {
     GUI_Implementation gui;
     public State Next()
     {
-        State newState=new State();
+        State currentState=new State(gui.getGrid());
+        State newState=new State(currentState.getRows(), currentState.getCols());
+        for(int i=1; i<currentState.getRows(); i++)
+        {
+            for(int j=1; j<currentState.getCols(); j++)
+            {
+                
+            }
+        }
         
         return newState;
     }
