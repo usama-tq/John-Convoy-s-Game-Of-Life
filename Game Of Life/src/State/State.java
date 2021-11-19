@@ -57,6 +57,14 @@ public class State {
          System.out.println("");
      }
  }
+ public int getRows()
+ {
+     return rows;
+ }
+ public int getCols()
+ {
+     return cols;
+ }
  /*
  public static void main(String[] args)
  {
