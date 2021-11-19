@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package GameControls;
-
+import GUI.GUI_Implementation;
 /**
  *
  * @author Shurahbeel Ahmad
