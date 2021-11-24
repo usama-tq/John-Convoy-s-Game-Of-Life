@@ -13,6 +13,11 @@ import State.State;
 public class GameControls {
     
     GUI_Implementation gui=new GUI_Implementation();
+    boolean stop=false;
+    
+    
+    
+    
     private boolean actionOnActive(int neighboursCount)
     {
         if(neighboursCount<=1)
@@ -35,6 +40,8 @@ public class GameControls {
         State currentState=new State(gui.getGrid());//getting the current state from grid
         State newState=new State(currentState.getRows(), currentState.getCols());//making new state for changes
         int neighbours=0;// for neighbour count
+        
+        //Count the neighbours code
         for(int i=1; i<currentState.getRows()-1; i++)
         {
             for(int j=1; j<currentState.getCols()-1; j++)
@@ -63,7 +70,7 @@ public class GameControls {
                 if(currentState.getInstance(i+1, j+1)) {
                     neighbours++;
                 }
-                
+                //define action on corrent cell
                 if(currentState.getInstance(i, j))
                 {
                     if(actionOnActive(neighbours))
@@ -87,6 +94,20 @@ public class GameControls {
         return newState;
     }
     
+    
+    
+    public State Start()
+    {
+        
+        while(stop)
+    }
+    
+    public void Stop()
+    {
+        stop=true;
+    }
+            
+            
     public static void main(String[] args)
     {/*
         State state=new State(10, 10);
