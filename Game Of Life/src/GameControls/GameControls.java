@@ -12,7 +12,7 @@ import State.State;
  */
 public class GameControls {
     
-    GUI_Implementation gui;
+    GUI_Implementation gui=new GUI_Implementation();
     private boolean actionOnActive(int neighboursCount)
     {
         if(neighboursCount<=1)
@@ -31,7 +31,7 @@ public class GameControls {
     }
     public State Next()
     {
-        gui=new GUI_Implementation();
+        //gui=new GUI_Implementation();
         State currentState=new State(gui.getGrid());//getting the current state from grid
         State newState=new State(currentState.getRows(), currentState.getCols());//making new state for changes
         int neighbours=0;// for neighbour count
@@ -39,32 +39,32 @@ public class GameControls {
         {
             for(int j=1; j<currentState.getCols()-1; j++)
             {
-                if(currentState.instance(i-1, j-1)) {
+                if(currentState.getInstance(i-1, j-1)) {
                     neighbours++;
                 }
-                if(currentState.instance(i-1, j)) {
+                if(currentState.getInstance(i-1, j)) {
                     neighbours++;
                 }
-                if(currentState.instance(i-1, j+1)) {
+                if(currentState.getInstance(i-1, j+1)) {
                     neighbours++;
                 }
-                if(currentState.instance(i, j-1)) {
+                if(currentState.getInstance(i, j-1)) {
                     neighbours++;
                 }
-                if(currentState.instance(i, j+1)) {
+                if(currentState.getInstance(i, j+1)) {
                     neighbours++;
                 }
-                if(currentState.instance(i+1, j-1)) {
+                if(currentState.getInstance(i+1, j-1)) {
                     neighbours++;
                 }
-                if(currentState.instance(i+1, j)) {
+                if(currentState.getInstance(i+1, j)) {
                     neighbours++;
                 }
-                if(currentState.instance(i+1, j+1)) {
+                if(currentState.getInstance(i+1, j+1)) {
                     neighbours++;
                 }
                 
-                if(currentState.instance(i, j))
+                if(currentState.getInstance(i, j))
                 {
                     if(actionOnActive(neighbours))
                     {
@@ -96,6 +96,6 @@ public class GameControls {
         state.print();*/
         GameControls GOL=new GameControls();
         State state=new State(GOL.Next());
-        state.print();
+        //state.print();
     }
 }

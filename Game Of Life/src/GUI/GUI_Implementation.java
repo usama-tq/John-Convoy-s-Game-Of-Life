@@ -20,13 +20,18 @@ public class GUI_Implementation  implements GUI_Interface{
         state.setInstance(3, 3, true);
         state.setInstance(3, 4, true);
         state.setInstance(3, 5, true);
-        state.print();
+        //state.print();
         System.out.println("Printed the Current Grid");
         return state;
     }
     public void printGrid(State state)
     {
-        state.print();
+        for(int i=0; i<state.getRows();i++)
+     {
+         for(int j=0; j<state.getCols();j++)
+             System.out.print(state.getInstance(i, j)+"-");
+         System.out.println("");
+     }
         System.out.println("Printed the New Grid");
 
     }

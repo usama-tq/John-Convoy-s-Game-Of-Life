@@ -65,7 +65,7 @@ public class State {
  {
      return cols;
  }
- public boolean instance(int row, int col)
+ public boolean getInstance(int row, int col)
  {
      if(grid[row][col]==true)
          return true;
