@@ -10,6 +10,7 @@ import State.State;
  * @author Shurahbeel Ahmad
  */
 public interface DBInterface {
+    
     public State loadState();
     public void saveState(State state);
     public void deleteState();
