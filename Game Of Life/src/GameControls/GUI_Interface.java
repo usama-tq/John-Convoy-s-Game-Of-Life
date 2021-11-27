@@ -13,5 +13,6 @@ import State.State;
  */
 public interface GUI_Interface {
     public State getGrid();
+    public void setGrid(State state);
     public void printGrid(State state);
 }
