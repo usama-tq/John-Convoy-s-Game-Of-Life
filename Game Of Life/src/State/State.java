@@ -47,7 +47,7 @@ public class State {
          for(int j=0; j<cols;j++)
              grid[i][j]=copyState.grid[i][j];
      }
- }/*
+ }
  public void print()
  {
      for(int i=0; i<rows;i++)
@@ -56,7 +56,7 @@ public class State {
              System.out.print(grid[i][j]+"-");
          System.out.println("");
      }
- }*/
+ }
  public int getRows()
  {
      return rows;
