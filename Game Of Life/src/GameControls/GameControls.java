@@ -28,16 +28,12 @@ public class GameControls {
     }
     private boolean actionOnDead(int neighboursCount)
     {
-        if(neighboursCount==3)
-            return true;
-        else
-            return false;
-        //return false;
+        return neighboursCount==3; //return false;
     }
     public State Next()
     {
         //gui=new GUI_Implementation();
-        State currentState=new State(gui.getGrid());//getting the current state from grid
+        State currentState=gui.getGrid();//getting the current state from grid
         State newState=new State(currentState.getRows(), currentState.getCols());//making new state for changes
         int neighbours=0;// for neighbour count
         
@@ -90,7 +86,7 @@ public class GameControls {
                 neighbours=0;
             }
         }
-        
+        gui.setGrid(newState);
         return newState;
     }
     
@@ -98,8 +94,16 @@ public class GameControls {
     
     public State Start()
     {
-        
-        while(stop)
+        stop=false;
+        State newState=gui.getGrid();
+        gui.printGrid(newState);
+        int i=3;
+        while(i>0)
+        {
+            i--;
+            newState=Next();
+        }
+        return newState;
     }
     
     public void Stop()
@@ -116,7 +120,9 @@ public class GameControls {
         state.setInstance(3, 5, true);
         state.print();*/
         GameControls GOL=new GameControls();
-        State state=new State(GOL.Next());
+        State state=GOL.Next();
+        GOL.Next();
+        GOL.Next();
         //state.print();
     }
 }
