@@ -13,8 +13,8 @@ import State.State;
 public class GameControls {
     
     GUI_Implementation gui=new GUI_Implementation();
-    boolean stop=false;
-    
+    private boolean stop=false;
+    private int count=0;
     
     
     
@@ -87,7 +87,9 @@ public class GameControls {
             }
         }
         gui.setGrid(newState);
+        count++;
         return newState;
+        
     }
     
     
@@ -110,7 +112,13 @@ public class GameControls {
     {
         stop=true;
     }
-            
+          
+    public int getCount()
+    {
+        return count;
+    }
+    
+    
             
     public static void main(String[] args)
     {/*
